@@ -44,15 +44,15 @@ LangChain exposes it through `langchain-mcp-adapters`:
 ```python
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-async with MultiServerMCPClient({
+client = MultiServerMCPClient({
     "governed-sql": {
         "url": "http://localhost:8000/mcp",
         "transport": "streamable_http",
     }
-}) as client:
-    tools = await client.get_tools()
-    # describe_entities / read_records / aggregate_records are now typed
-    # LangChain tools, each bound by the caller's row-level security.
+})
+tools = await client.get_tools()
+# describe_entities / read_records / aggregate_records are now typed
+# LangChain tools, each bound by the caller's row-level security.
 ```
 
 ## Deployment
