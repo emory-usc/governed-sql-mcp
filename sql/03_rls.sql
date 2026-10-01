@@ -1,0 +1,17 @@
+-- Row-level security policy (documented here; enforced in query.py).
+--
+-- SQLite has no native session-context security predicates, so the equivalent
+-- predicate is applied in the query layer. The shape is identical to a SQL
+-- Server security predicate driven by SESSION_CONTEXT:
+--
+--   CREATE FUNCTION dbo.fn_securitypredicate(@manager_id AS sysname)
+--   RETURNS TABLE WITH SCHEMABINDING AS
+--   RETURN SELECT 1 AS result
+--   WHERE @manager_id = CONVERT(sysname, SESSION_CONTEXT(N'manager_id'))
+--      OR CONVERT(sysname, SESSION_CONTEXT(N'role')) = N'admin';
+--
+-- The three rules below are the contract query.py enforces:
+
+--   1. role = 'admin'            -> predicate 1=1  (sees everything)
+--   2. role = 'manager'          -> predicate manager_id = <caller's id>
+--   3. no claim / unknown role   -> predicate 1=0  (sees nothing, fail closed)

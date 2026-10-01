@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "governed-sql-mcp"
+version = "0.1.0"
+description = "A governed, read-only SQL MCP server: views as the security boundary, fail-closed row-level security, and no write path."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Emory Long" }]
+keywords = ["mcp", "sql", "row-level-security", "read-only", "governance", "llm", "agent"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = []
+
+[project.optional-dependencies]
+mcp = [
+    "mcp>=1.9",
+    "uvicorn>=0.30",
+]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+governed-sql = "governed_sql_mcp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
