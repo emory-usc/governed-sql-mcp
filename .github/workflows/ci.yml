@@ -27,4 +27,4 @@ jobs:
         run: uv run python -m governed_sql_mcp.cli verify
 
       - name: Build the MCP server in-process
-        run: uv run python -c "from governed_sql_mcp.server import create_mcp; m = create_mcp(); assert m.name == 'governed-sql-mcp'; print('MCP server OK')"
+        run: uv run python -c "from governed_sql_mcp.server import create_mcp; m = create_mcp(); assert m.name == 'governor-sql-mcp'; print('MCP server OK')"
