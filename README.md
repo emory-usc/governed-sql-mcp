@@ -1,6 +1,6 @@
-# Governed SQL MCP
+# Governor SQL MCP
 
-[![CI](https://github.com/emory-usc/governed-sql-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/emory-usc/governed-sql-mcp/actions/workflows/ci.yml)
+[![CI](https://github.com/emory-usc/governor-sql-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/emory-usc/governor-sql-mcp/actions/workflows/ci.yml)
 
 A governed, read-only MCP server over SQL. Stand it up from nothing, point an
 AI agent at it, and the agent can only ever see what the caller is allowed to

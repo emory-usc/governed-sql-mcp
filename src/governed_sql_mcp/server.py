@@ -30,7 +30,7 @@ def create_mcp():
     conn = db.connect(":memory:")
     db.seed(conn)
 
-    mcp = MCPServer(name="governed-sql-mcp")
+    mcp = MCPServer(name="governor-sql-mcp")
 
     @mcp.tool()
     def describe_entities() -> list[dict]:

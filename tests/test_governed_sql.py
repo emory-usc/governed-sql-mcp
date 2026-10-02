@@ -1,4 +1,4 @@
-"""Tests for governed-sql-mcp."""
+"""Tests for Governor SQL MCP."""
 
 import sqlite3
 
