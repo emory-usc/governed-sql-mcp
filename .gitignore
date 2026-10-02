@@ -7,3 +7,4 @@ dist/
 .pytest_cache/
 *.db
 *.sqlite3
+.hermes/
